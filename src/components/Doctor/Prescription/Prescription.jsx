@@ -12,13 +12,11 @@ const Prescription = () => {
 
     const columns = [
         {
-            title: 'Appointment Id',
+            title: 'Appointment Id', 
             dataIndex: "appointment",
             key: 1,
-            render: ({trackingId}) =>{
-                return (
-                    <Tag color="#f50">{trackingId}</Tag>
-                )
+            render: () =>{
+                return <p >1</p>
             }
         },
         {
@@ -26,13 +24,16 @@ const Prescription = () => {
             sorter: true,
             dataIndex: "disease",
             key: 3,
+            render: () =>{
+                return <p >Nothing</p>
+            }
         },
         {
             title: 'Follow-Update',
             dataIndex: "followUpdate",
             key: 4,
-            render: function (data) {
-                return <Tag color="#87d068">{dayjs(data).format('MMM D, YYYY hh:mm A')}</Tag>;
+            render:  () => {
+                return <Tag color="#87d068">MMM D, YYYY hh:mm A </Tag>;
             }
         },
         {
@@ -90,7 +91,7 @@ const Prescription = () => {
     }
 
     return (
-        <DashboardLayout>
+        // <DashboardLayout>
             <div className="w-100 mb-3 rounded" style={{ background: '#f8f9fa' }}>
                 <CustomTable
                     loading={isLoading}
@@ -101,7 +102,7 @@ const Prescription = () => {
                     showSizeChanger={true}
                 />
             </div>
-        </DashboardLayout>
+        // </DashboardLayout>
     )
 }
 

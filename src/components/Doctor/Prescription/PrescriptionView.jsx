@@ -40,17 +40,14 @@ const PrescriptionView = () => {
                 const startDate = moment(duratinDate[1]);
                 const getDiffrent = endDate.diff(startDate, "days");
                 return (
-                    <>{getDiffrent} days</>
+                    <>{getDiffrent} days</> 
                 )
             }
         },
 
     ];
 
-    let content = null;
-    if (isLoading) content = <div>Loading ...</div>
-    if (!isLoading && !isError && !data) content = <Empty />
-    if (!isLoading && !isError && data) content =
+    let content = 
         <>
             <div className="col-lg-8 offset-lg-2">
                 <div className="invoice-content">
@@ -58,13 +55,16 @@ const PrescriptionView = () => {
                         <div className="row">
                             <div className="col-md-6">
                                 <div className="invoice-logo">
-                                    <img src={logo} alt="" />
+                                    <img src={'logo'} alt="" />
                                 </div>
                             </div>
                             <div className="col-md-6">
                                 <p className="invoice-details">
-                                    <strong>Tracking Id:</strong> {data?.appointment?.trackingId} <br />
-                                    <strong>Issued:</strong> {moment(data.createdAt).format('LL')}
+                                    <strong>Tracking Id:</strong> 
+                                    {/* {data?.appointment?.trackingId}  */}
+                                    <br />
+                                    <strong>Issued:</strong> 
+                                    {/* {moment(data.createdAt).format('LL')} */}
                                 </p>
                             </div>
                         </div>
@@ -75,10 +75,18 @@ const PrescriptionView = () => {
                             <div className="col-md-12">
                                 <div className="invoice-info p-2 rounded" style={{ background: '#c9c9c92b' }}>
                                     <div className="invoice-details invoice-details-two " >
-                                        <h3>Dr.{data?.doctor?.firstName + ' ' + data?.doctor?.lastName}</h3>
-                                        <p>{data?.doctor?.designation} ,</p>
-                                        <p>{data?.doctor?.college}</p>
-                                        <span className="form-text">{data?.doctor?.address}, {data?.doctor?.state},{data?.doctor?.country}</span>
+                                        <h3>Dr.Haris
+                                            {/* {data?.doctor?.firstName + ' ' + data?.doctor?.lastName} */}
+                                            </h3>
+                                        <p>
+                                            {/* {data?.doctor?.designation}  */}
+                                            </p>
+                                        <p>
+                                            {/* {data?.doctor?.college} */}
+                                            </p>
+                                        <span className="form-text">
+                                            {/* {data?.doctor?.address}, {data?.doctor?.state},{data?.doctor?.country} */}
+                                            </span>
                                     </div>
                                 </div>
                             </div>
@@ -88,13 +96,23 @@ const PrescriptionView = () => {
                                     <div className="invoice-details invoice-details-two">
                                         <div className="d-flex justify-content-between patient-name">
                                             <div>
-                                                <h5 style={{ fontWeight: 700 }}>Patient Name : {data?.patient?.firstName + ' ' + data?.patient?.lastName}</h5>
-                                                <p className="form-text">Address: {data?.patient?.address}, {data?.patient?.city}, {data?.patient?.country}</p>
+                                                <h5 style={{ fontWeight: 700 }}>Patient Name : 
+                                                {/* {data?.patient?.firstName + ' ' + data?.patient?.lastName} */}
+                                                </h5>
+                                                <p className="form-text">Address: 
+                                                {/* {data?.patient?.address}, {data?.patient?.city}, {data?.patient?.country} */}
+                                                </p>
                                             </div>
                                             <div>
-                                                <p>Sex : {data?.patient?.gender}</p>
-                                                <p>Age : {moment().diff(data?.patient?.dateOfBirth, 'years')}</p>
-                                                <p>Weight : {data?.patient?.weight}</p>
+                                                <p>Sex : Male
+                                                    {/* {data?.patient?.gender} */}
+                                                    </p>
+                                                <p>Age : 23
+                                                    {/* {moment().diff(data?.patient?.dateOfBirth, 'years')} */}
+                                                    </p>
+                                                <p>Weight : 90k
+                                                    {/* {data?.patient?.weight} */}
+                                                    </p>
                                             </div>
                                         </div>
                                     </div>
@@ -158,7 +176,7 @@ const PrescriptionView = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </>
     )
 }

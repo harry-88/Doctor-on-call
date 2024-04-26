@@ -16,7 +16,7 @@ const BookingSuccess = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const timeOut = setTimeout(() => {
+        const timeOut = setTimeout(() => {  
             if (!data?.id) {
                 navigate('/');
             }
@@ -52,8 +52,8 @@ const BookingSuccess = () => {
                             <div className='card border-0 p-3 rounded mb-5'>
                                 <div className='d-flex gap-3 mb-2 align-items-center'>
                                     <FaAlignLeft style={{ fontSize: '1rem' }}/>
-                                    <Link to={`/dashboard/appointments/${id}`}><h5 className='text-primary'>View Appointment Details</h5></Link>
-                                </div>
+                                    <Link to={`/dashboard/appointments/${'1'}`}><h5 className='text-primary'>View Appointment Details</h5></Link>
+                                </div> 
                                 <div className='d-flex gap-3 mb-1'>
                                     <FaBriefcase style={{ fontSize: '1rem' }} />
                                     <p>With Doctor</p>

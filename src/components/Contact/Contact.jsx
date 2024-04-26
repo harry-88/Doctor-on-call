@@ -7,7 +7,8 @@ import './index.css';
 import SubHeader from '../Shared/SubHeader';
 import { useContactMutation } from '../../redux/api/contactApi';
 import { message } from 'antd';
-
+import ViewAppointment from '../Doctor/Appointments/ViewAppointment';
+ 
 const Contact = () => {
     const [contact, {isLoading, isError, error, isSuccess}]= useContactMutation();
     const { register, handleSubmit, reset } = useForm({});

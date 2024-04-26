@@ -9,15 +9,15 @@ import { Button, Tag, Tooltip } from 'antd';
 import { clickToCopyClipBoard } from '../../../utils/copyClipBoard';
 import { FaPrint } from "react-icons/fa";
 import ReactToPrint from "react-to-print";
+import Prescription from '../Prescription/Prescription';
+import PrescriptionView from '../Prescription/PrescriptionView';
 
 const ViewAppointment = () => {
     const ref = useRef();
     const { id } = useParams();
     const { data, isLoading, isError } = useGetSingleAppointmentQuery(id);
 
-    let content = null;
-    if (isLoading && !isError) content = <h2>Loading...</h2>
-    if (!isLoading && !isError && data?.id) content =
+    let content =
         <>
             <page size="A4" className="container mx-auto border border-primary-subtle p-3 pb-3">
                 <div className='d-flex justify-content-between rounded p-2' style={{ background: '#f2f4fe' }}>
@@ -32,7 +32,7 @@ const ViewAppointment = () => {
 
                     <div style={{ fontWeight: 500 }}>
                         {data?.patientType &&
-                        <p className='mb-1'>Patient Type : <Tag bordered={false} color="processing">{data?.patientType}</Tag></p>}
+                            <p className='mb-1'>Patient Type : <Tag bordered={false} color="processing">{data?.patientType}</Tag></p>}
                         <p className='mb-1'>Current Status:  <Tag bordered={false} color="orange">{data?.status}</Tag></p>
                         <p className='mb-1'>Payment : <Tag bordered={false} color="success">{data?.paymentStatus}</Tag></p>
                         <p className='mb-1'>Prescription Status : <Tag bordered={false} color="green">{data?.prescriptionStatus}</Tag></p>
@@ -53,20 +53,27 @@ const ViewAppointment = () => {
 
                 <div>
                     <h4 className='text-center my-3 fw-bold text-secondary'>DOCTOR INFOMATION</h4>
-                    {
-                        data?.doctor &&
-                        <div className='border border-light-subtle rounded p-3 d-flex gap-3'>
-                            <div>
-                                <img src={data?.doctor?.img} alt="" style={{ border: '2px solid #ffbc21', width: '80px', height: '80px', borderRadius: '50%', objectFit: 'cover', objectPosition: 'top' }} />
-                            </div>
-                            <div>
-                                <h4 className="mb-1">{data?.doctor?.firstName && data?.doctor?.lastName ? `${data.doctor.firstName} ${data.doctor.lastName}` : (data?.doctor?.firstName || data?.doctor?.lastName)}</h4>
-                                <p className="mb-1">{data?.doctor?.specialization}</p>
-                                <p className="mb-1 form-text">{data?.doctor?.designation}</p>
-                                <p className="mb-1 form-text">{data?.doctor?.college}</p>
-                            </div>
+                    {/* {data?.doctor && */}
+                    <div className='border border-light-subtle rounded p-3 d-flex gap-3'>
+                        <div>
+                            <img src={data?.doctor?.img} alt="" style={{ border: '2px solid #ffbc21', width: '80px', height: '80px', borderRadius: '50%', objectFit: 'cover', objectPosition: 'top' }} />
                         </div>
-                    }
+                        <div>
+                            <h4 className="mb-1">Doctor
+                                {/* {data?.doctor?.firstName && data?.doctor?.lastName ? `${data.doctor.firstName} ${data.doctor.lastName}` : (data?.doctor?.firstName || data?.doctor?.lastName)} */}
+                            </h4>
+                            <p className="mb-1">Mbbs
+                                {/* {data?.doctor?.specialization} */}
+                            </p>
+                            <p className="mb-1 form-text">Lahore,Pakistan
+                                {/* {data?.doctor?.designation} */}
+                            </p>
+                            <p className="mb-1 form-text">Public Medical Colleges
+                                {/* {data?.doctor?.college} */}
+                            </p>
+                        </div>
+                    </div>
+                    {/* } */}
                 </div>
 
                 <div>
@@ -77,14 +84,27 @@ const ViewAppointment = () => {
                         </div>
                         <div>
 
-                            <h4 className="mb-1">{data?.patient?.firstName + ' ' + data?.patient?.lastName}</h4>
-                            <p className="mb-1 form-text">Age : {moment().diff(moment(data?.patient?.dateOfBirth), 'years')}</p>
-                            <p className="mb-1 form-text">Blood Group : {data?.patient?.bloodGroup}</p>
-                            <p className="mb-1 form-text">{data?.patient?.city + ' , ' + data?.patient?.state + ' , ' + data?.patient?.country}</p>
+                            <h4 className="mb-1">Haris
+                                {/* {data?.patient?.firstName + ' ' + data?.patient?.lastName} */}
+                            </h4>
+                            <p className="mb-1 form-text">Age : 23
+                                {/* {moment().diff(moment(data?.patient?.dateOfBirth), 'years')} */}
+                            </p>
+                            <p className="mb-1 form-text">Blood Group : B+
+                                {/* {data?.patient?.bloodGroup} */}
+                            </p>
+                            <p className="mb-1 form-text">Lahore
+                                {/* {data?.patient?.city + ' , ' + data?.patient?.state + ' , ' + data?.patient?.country} */}
+                            </p>
 
                             <div className='mt-2'>
-                                <p>Reason for Visit - <span className='text-warning'>{data?.reasonForVisit}</span></p>
-                                <p className='text-warning'>{data?.description}</p>
+                                <p>Reason for Visit - <span className='text-warning'>
+                                    {/* {data?.reasonForVisit} */}
+                                </span></p>
+                                <p className='text-warning'>
+                                    Headache, also known as cephalalgia, is the symptom of pain in the face, head, or neck. It can occur as a migraine, tension-type headache, or cluster headache. There is an increased risk of depression in those with severe headaches.
+                                    {/* {data?.description} */}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -106,6 +126,11 @@ const ViewAppointment = () => {
                     {content}
                 </div>
             </div>
+            <div className='container'>
+                {/* <Prescription /> */}
+                <PrescriptionView/>
+            </div>
+
             <Footer />
         </>
     )

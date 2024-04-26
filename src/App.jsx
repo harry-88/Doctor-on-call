@@ -29,6 +29,7 @@ import AddBlog from './components/Doctor/Blogs/AddBlog';
 import Blog from './components/Blog/Blog';
 import BlogDetails from './components/Blog/BlogDetails';
 import Contact from './components/Contact/Contact';
+import Appoinment from './components/Doctor/Appointments/ViewAppointment';
 import About from './components/About/About';
 import Service from './components/Service/Service';
 import AppointmentPage from './components/Appointment/AppointmentPage';
@@ -54,9 +55,9 @@ function App() {
           <Route path='/dashboard/reviews' element={<Reviews />} />
           <Route path='/dashboard/schedule' element={<Schedule />} />
           <Route path='/dashboard/appointments' element={<Appointments />} />
-          <Route path='/dashboard/appointments/:id' element={<ViewAppointment />} />
+          <Route path='/dashboard/appointments/' element={<ViewAppointment />} />
           <Route path='/dashboard/prescription' element={<Prescription />} />
-          <Route path='/dashboard/prescription/:id' element={<PrescriptionView />} />
+          <Route path='/dashboard/prescription/' element={<PrescriptionView />} />
           <Route path='/dashboard/appointment/treatment/:id' element={<Treatment />} />
           <Route path='/dashboard/appointment/treatment/edit/:id' element={<TreatmentEdit />} />
           <Route path='/dashboard/change-password' element={<ChangePassword />} />
@@ -69,6 +70,7 @@ function App() {
         <Route path='/blog' element={<Blog />} />
         <Route path='/blog/:id' element={<BlogDetails />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='/Appoinment' element={<Appoinment />} />
         <Route path='/about' element={<About />} />
         <Route path='/service' element={<Service />} />
         <Route path='/reset-password/:userId/:uniqueString' element={<ForgotPassword />} />
